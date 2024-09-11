@@ -13,11 +13,9 @@ class PrintGant:
         gantt_data = []
 
         for zamowienie in zamowienia_klienta:
-            # Sortowanie operacji po id_operacji rosnąco (od najmniejszego do największego)
-            sorted_operacje = sorted(zamowienie.operacje, key=lambda op: op.id_operacji, reverse=True)
 
             end_date = zamowienie.termin
-            for operacja in sorted_operacje:
+            for operacja in zamowienie.operacje:
                 # Obliczamy start operacji na podstawie terminu końcowego
                 start_date = end_date - pd.Timedelta(seconds=operacja.czas_trwania_operacji)
                 
