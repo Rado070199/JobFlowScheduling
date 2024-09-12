@@ -1,4 +1,4 @@
-# JobFlowScheduling
+# Harmonogram przepływu zadań
 
 ## Opis Projektu
 
@@ -31,4 +31,4 @@ Projekt ma na celu tworzenie wykresu Gantta, który wizualizuje harmonogram dla 
 * Plotly Express: Biblioteka Plotly Express jest wykorzystywana do tworzenia i wizualizacji wykresu Gantta.
 
 ### Obrazek poglądowy
-![alt text](image.png)
+![alt text](git/gant.png)

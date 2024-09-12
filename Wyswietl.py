@@ -17,13 +17,13 @@ class Pokaz:
                 start_date = end_date - pd.Timedelta(seconds=operacja.czas_trwania_operacji)
                 
                 gantt_data.append({
-                    'Zamowienie klienta': zamowienie.numer_zlecenia,  # numer zlecenia na osi Y
-                    'Marszruta': f"Operacja {operacja.id_operacji}",
+                    'Order': zamowienie.numer_zlecenia,  # numer zlecenia na osi Y
+                    'Task': f"Operacja {operacja.id_operacji}",
                     'Start': start_date,  # Czas startu operacji
-                    'Koniec': end_date,  # Termin zakończenia
-                    'Maszyna': str(operacja.maszyna.symbol) if operacja.maszyna.symbol else 'Brak danych',  # Zamiana obiektu na string
-                    'Pracownik': str(operacja.pracownik.symbol) if operacja.pracownik.symbol else 'Brak danych',  # Zamiana obiektu na string
-                    'Gniazdo': operacja.symbol_gniazda
+                    'Finish': end_date,  # Termin zakończenia
+                    'Machine': str(operacja.maszyna.symbol) if operacja.maszyna.symbol else 'Brak danych',  # Zamiana obiektu na string
+                    'Worker': str(operacja.pracownik.symbol) if operacja.pracownik.symbol else 'Brak danych',  # Zamiana obiektu na string
+                    'Operation': operacja.symbol_gniazda
                 })
 
                 # Zaktualizuj koniec dla kolejnej operacji
@@ -36,17 +36,17 @@ class Pokaz:
         fig = px.timeline(
             df_gantt,
             x_start='Start',
-            x_end='Koniec',
-            y='Zamowienie klienta',  # numer zlecenia na osi Y
-            color='Marszruta',  # Kolorowanie według gniazda (maszyny/gniazda)
-            labels={'Marszruta': 'Gniazdo'},
+            x_end='Finish',
+            y='Order',  # numer zlecenia na osi Y
+            color='Operation',  # Kolorowanie według gniazda (maszyny/gniazda)
+            labels={'Operation': 'Gniazdo'},
             title='Harmonogram zleceń i przypisanych operacji',
-            hover_name='Marszruta',
+            hover_name='Task',
             hover_data={
                 'Start': True,
-                'Koniec': True,
-                'Maszyna': True,
-                'Pracownik': True
+                'Finish': True,
+                'Machine': True,
+                'Worker': True
             }
         )
 

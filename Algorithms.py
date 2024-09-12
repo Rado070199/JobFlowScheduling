@@ -276,7 +276,7 @@ class GeneticAlgorithms():
         #Podaj współczynnik selekcji mutacji:
         mutation_selection_rate = float(mutationSelectionCoefficient or 0.2)
         num_mutation_jobs = round(num_job * mutation_selection_rate)
-        #Podaj liczbę iteracji: 
+        # Podaj liczbę iteracji: 
         num_iteration = int(numberOfIterations or 2000)
 
         start_time = time.time()
