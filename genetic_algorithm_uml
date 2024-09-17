@@ -1,0 +1,26 @@
+// Klasyczny Algorytm Genetyczny (GA)
+digraph {
+	GA [label="GeneticAlgorithm
+- population_size
+- generations
+- mutation_rate
+- crossover_rate
++ initialize_population()
++ select_parents()
++ crossover()
++ mutate()
++ evaluate_fitness()
++ run()"]
+	Chromosome [label="Chromosome
+- genes
++ fitness()
++ mutate()
++ crossover()"]
+	Population [label="Population
+- chromosomes
++ evaluate_fitness()
++ select_parents()
++ evolve()"]
+	GA -> Population [label=manages]
+	Population -> Chromosome [label=contains]
+}

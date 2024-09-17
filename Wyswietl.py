@@ -64,6 +64,8 @@ class Pokaz:
             height=900  # Wysokość wykresu, dostosuj w zależności od liczby zleceń
         )
 
+        # Zapisz wykres do pliku 
+        fig.write_html('git/gant.html')
         # Wyświetlenie wykresu
         fig.show()
 

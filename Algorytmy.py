@@ -52,7 +52,7 @@ class AlgorytmyPrzypisujace():
                 maszyny_dostepne = [
                     maszyna for maszyna in maszyny_dla_gniazda
                     if not any(
-                        wylaczenie.data_od <= data_koncowa and wylaczenie.data_do >= start_date
+                        wylaczenie.data_od >= data_koncowa and wylaczenie.data_do <= start_date
                         for wylaczenie in (maszyna.wykluczeniaMaszyny or [])
                     )
                 ]
